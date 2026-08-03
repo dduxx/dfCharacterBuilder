@@ -1,6 +1,5 @@
-include <../dependencies/dduxx:twoPointFiveD:v0.2.0/scad/main.scad>
-include <./utils/general.scad>
-// TODO move this to its own "child" module
+include <../../dependencies/dduxx:twoPointFiveD:v1.0.0/scad/main.scad>
+include <../utils/general.scad>
 
 /* [GENERAL:] */
 // MM per pixel in the x and y direction
@@ -22,12 +21,20 @@ HAS_LEFT_FOOT = true;
 HAS_RIGHT_LEG = true;
 HAS_RIGHT_FOOT = true;
 
+// MM to offset the body layer on the z axis
+BODY_OFFSET = 1;
+
 /* [Hair:] */
 
 HAIR_STYLE = "none"; // [none: None, long_braided:Long Braided, long_combed:Long Combed, long_double_braids:Long Double Braids, long_unkempt:Long Unkempt, mid_braided:Mid Braided, mid_combed:Mid Combed, mid_double_braids:Mid Double Braids, mid_unkempt:Mid Unkempt, short_braided:Short Braided, short_combed:Short Combed, short_double_braids:Short Double Braids, short_unkempt:Short Unkempt, stubble:Stubble, short_pony_tail:Short Pony Tail, mid_pony_tail:Mid Pony Tail, long_pony_tail:Long Pony Tail]
 
+// MM to offset the hair layer on the z axis
+HAIR_OFFSET = 2;
+
 BEARD_STYLE = "none"; // [none:None, long_braided:Long Braided, long_combed:Long Combed, long_double_braids:Long Double Braids, long_unkempt:Long Unkempt, mid_braided:Mid Braided, mid_combed:Mid Combed, mid_double_braids:Mid Double Braids, mid_unkempt:Mid Unkempt, short_braided:Short Braided, short_combed:Short Combed, short_double_braids:Short Double Braids, short_unkempt:Short Unkempt]
 
+// MM to offset the beard layer on the z axis
+BEARD_OFFSET = 4;
 
 /* [Wearables:] */
 HAS_HOOD = false;
@@ -48,6 +55,12 @@ FACE_COVERING = "none"; // [none:None, mask:Mask, veil_face:Veil]
 SHIRT = "none"; // [none: None, torso_simple:Simple, torso_vest:Vest]
 
 WAIST = "none"; // [none:None, waist_robe:Robe, waist_skirt:Skirt, waist_skirt_short:Short Skirt, waist_tunic:Tunic]
+
+// MM to offset the cape layer on the z axis
+HOOD_CAPE_OFFSET = 0;
+
+// MM to offset the clothing layer on the z axis
+CLOTHING_OFFSET = 3;
 
 module __Customizer_Limit__ () {}
 
@@ -156,9 +169,8 @@ beard_obj = BEARD_STYLE != NONE ?
     import(_get_beard_part_path(BEARD_STYLE)) :
     undef;
 
-// TODO add support for layer offsets, and unique height per color per layer as well
 multi_layer_two_point_five_d(
-    [
+    image_layers = [
         hood_obj,
         cape_obj,
         body_obj,
@@ -187,12 +199,41 @@ multi_layer_two_point_five_d(
         waist_obj,
         headwear_obj,
     ],
+    layer_offsets = [
+        HAS_HOOD ? HOOD_CAPE_OFFSET : undef,
+        HAS_CAPE ? HOOD_CAPE_OFFSET : undef,
+        BODY_OFFSET,
+        SHIRT != NONE ? CLOTHING_OFFSET : undef,
+        HEAD > 0 ? BODY_OFFSET : undef,
+        HAIR_STYLE != NONE ? HAIR_OFFSET : undef,
+        BEARD_STYLE != NONE ? BEARD_OFFSET : undef,
+        HAS_EARINGS ? CLOTHING_OFFSET : undef,
+        FACE_COVERING != NONE ? CLOTHING_OFFSET : undef,
+        HAS_LEFT_SHOULDER ? BODY_OFFSET : undef,
+        HAS_LEFT_ARMWEAR ? CLOTHING_OFFSET : undef,
+        HAS_LEFT_HAND ? BODY_OFFSET : undef,
+        HAS_LEFT_HANDWEAR ? CLOTHING_OFFSET : undef,
+        HAS_RIGHT_SHOULDER ? BODY_OFFSET : undef,
+        HAS_RIGHT_ARMWEAR ? CLOTHING_OFFSET : undef,
+        HAS_RIGHT_HAND ? BODY_OFFSET : undef,
+        HAS_RIGHT_HANDWEAR ? CLOTHING_OFFSET : undef,
+        HAS_LEFT_LEG ? BODY_OFFSET : undef,
+        HAS_LEFT_LEGWEAR ? CLOTHING_OFFSET : undef,
+        HAS_LEFT_FOOT ? BODY_OFFSET : undef,
+        HAS_LEFT_FOOTWEAR ? CLOTHING_OFFSET : undef,
+        HAS_RIGHT_LEG ? BODY_OFFSET : undef,
+        HAS_RIGHT_LEGWEAR ? CLOTHING_OFFSET : undef,
+        HAS_RIGHT_FOOT ? BODY_OFFSET : undef,
+        HAS_RIGHT_FOOTWEAR ? CLOTHING_OFFSET : undef,
+        WAIST != NONE ? CLOTHING_OFFSET : undef,
+        HEADWEAR != NONE ? CLOTHING_OFFSET : undef,
+    ],
     pixel_size = PIXEL_SIZE,
 );
 
 function _get_body_part_path(part, gender, index = undef) =
     is_undef(index) ? str(
-        "../fixtures/dwarf/",
+        "../../fixtures/dwarf/",
         "child",
         "_",
         part,
@@ -200,7 +241,7 @@ function _get_body_part_path(part, gender, index = undef) =
         gender,
         ".json"
     ) : str(
-        "../fixtures/dwarf/",
+        "../../fixtures/dwarf/",
         "child",
         "_",
         part,
@@ -212,7 +253,7 @@ function _get_body_part_path(part, gender, index = undef) =
     );
 
 function _get_clothing_part_path(type) = str(
-    "../fixtures/dwarf/",
+    "../../fixtures/dwarf/",
     "child",
     "_",
     "clothing",
@@ -222,7 +263,7 @@ function _get_clothing_part_path(type) = str(
 );
 
 function _get_hair_part_path(type) = str(
-    "../fixtures/dwarf/",
+    "../../fixtures/dwarf/",
     "child",
     "_",
     "hair",
@@ -232,7 +273,7 @@ function _get_hair_part_path(type) = str(
 );
 
 function _get_beard_part_path(type) = str(
-    "../fixtures/dwarf/",
+    "../../fixtures/dwarf/",
     "child",
     "_",
     "beard",
