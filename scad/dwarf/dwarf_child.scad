@@ -26,7 +26,7 @@ BODY_OFFSET = 1;
 
 /* [Hair:] */
 
-HAIR_STYLE = "none"; // [none: None, long_braided:Long Braided, long_combed:Long Combed, long_double_braids:Long Double Braids, long_unkempt:Long Unkempt, mid_braided:Mid Braided, mid_combed:Mid Combed, mid_double_braids:Mid Double Braids, mid_unkempt:Mid Unkempt, short_braided:Short Braided, short_combed:Short Combed, short_double_braids:Short Double Braids, short_unkempt:Short Unkempt, stubble:Stubble, short_pony_tail:Short Pony Tail, mid_pony_tail:Mid Pony Tail, long_pony_tail:Long Pony Tail]
+HAIR_STYLE = "none"; // [none: None, long_braided:Long Braided, long_combed:Long Combed, long_double_braids:Long Double Braids, long_unkempt:Long Unkempt, mid_braided:Mid Braided, mid_combed:Mid Combed, mid_double_braids:Mid Double Braids, mid_unkempt:Mid Unkempt, short_braided:Short Braided, short_combed:Short Combed, short_double_braids:Short Double Braids, short_unkempt:Short Unkempt, stubble:Stubble, short_pony_tail:Short Pony Tail, mid_pony_tail:Mid Pony Tail, long_pony_tail:Long Pony Tail, long_braided_curly:Long Braided Curly, long_combed_curly:Long Combed Curly, long_double_braids_curly:Long Double Braids Curly, long_unkempt_curly:Long Unkempt Curly, mid_braided_curly:Mid Braided Curly, mid_combed_curly:Mid Combed Curly, mid_double_braids_curly:Mid Double Braids Curly, mid_unkempt_curly:Mid Unkempt Curly, short_braided_curly:Short Braided Curly, short_combed_curly:Short Combed Curly, short_double_braids_curly:Short Double Braids Curly, short_unkempt_curly:Short Unkempt Curly, stubble_curly:Stubble Curly, short_pony_tail_curly:Short Pony Tail Curly, mid_pony_tail_curly:Mid Pony Tail Curly, long_pony_tail_curly:Long Pony Tail Curly]
 
 // MM to offset the hair layer on the z axis
 HAIR_OFFSET = 2;
