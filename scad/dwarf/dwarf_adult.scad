@@ -79,119 +79,122 @@ WIELDABLE_RIGHT_HAND_OFFSET = 0;
 
 module __Customizer_Limit__ () {}
 
+ADULT_PATH_PREFIX = "../../fixtures/dwarf/adult_";
+
 CHARACTER_PIXEL_DIMENSIONS = 32;
 
 head_obj = HEAD > 0 ?
-    import(_get_body_part_path("face", GENDER, HEAD)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "face", GENDER, HEAD)) :
     undef;
 
 body_obj = import(
-    _get_body_part_path(
+    get_body_part_path(
+        ADULT_PATH_PREFIX,
         "body",
         GENDER,
     )
 );
 
 left_shoulder_obj = HAS_LEFT_SHOULDER ?
-    import(_get_body_part_path("left_shoulder", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "left_shoulder", GENDER)) :
     undef;
 
 left_hand_obj = HAS_LEFT_HAND ?
-    import(_get_body_part_path("left_hand", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "left_hand", GENDER)) :
     undef;
 
 right_shoulder_obj = HAS_RIGHT_SHOULDER ?
-    import(_get_body_part_path("right_shoulder", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "right_shoulder", GENDER)) :
     undef;
 
 right_hand_obj = HAS_RIGHT_HAND ?
-    import(_get_body_part_path("right_hand", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "right_hand", GENDER)) :
     undef;
 
 left_leg_obj = HAS_LEFT_LEG ?
-    import(_get_body_part_path("left_leg", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "left_leg", GENDER)) :
     undef;
 
 left_foot_obj = HAS_LEFT_FOOT ?
-    import(_get_body_part_path("left_foot", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "left_foot", GENDER)) :
     undef;
 
 right_leg_obj = HAS_RIGHT_LEG ?
-    import(_get_body_part_path("right_leg", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "right_leg", GENDER)) :
     undef;
 
 right_foot_obj = HAS_RIGHT_FOOT ?
-    import(_get_body_part_path("right_foot", GENDER)) :
+    import(get_body_part_path(ADULT_PATH_PREFIX, "right_foot", GENDER)) :
     undef;
 
 hair_obj = HAIR_STYLE != NONE ?
-    import(_get_hair_part_path(HAIR_STYLE)) :
+    import(get_hair_part_path(ADULT_PATH_PREFIX, HAIR_STYLE)) :
     undef;
 
 beard_obj = BEARD_STYLE != NONE ?
-    import(_get_beard_part_path(BEARD_STYLE)) :
+    import(get_beard_part_path(ADULT_PATH_PREFIX, BEARD_STYLE)) :
     undef;
 
 hood_obj = HAS_HOOD ?
-    import(_get_clothing_part_path("hood")) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,"hood")) :
     undef;
 
 cape_obj = HAS_CAPE ?
-    import(_get_clothing_part_path("cape")) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,"cape")) :
     undef;
 
 earing_obj = HAS_EARINGS ?
-    import(_get_clothing_part_path("earring")) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,"earring")) :
     undef;
 
 headwear_obj = HEADWEAR != NONE ?
-    import(_get_clothing_part_path(HEADWEAR)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,HEADWEAR)) :
     undef;
 
 face_covering_obj = FACE_COVERING != NONE ?
-    import(_get_clothing_part_path(FACE_COVERING)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,FACE_COVERING)) :
     undef;
 
 shirt_obj = SHIRT != NONE ?
-    import(_get_clothing_part_path(SHIRT)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,SHIRT)) :
     undef;
 
 waist_obj = WAIST != NONE ?
-    import(_get_clothing_part_path(WAIST)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,WAIST)) :
     undef;
 
 left_foot_wearable_obj = LEFT_FOOT_WEARABLE != NONE ?
-    import(_get_clothing_part_path(LEFT_FOOT_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_FOOT_WEARABLE)) :
     undef;
 left_leg_wearable_obj = LEFT_LEG_WEARABLE != NONE ?
-    import(_get_clothing_part_path(LEFT_LEG_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_LEG_WEARABLE)) :
     undef;
 right_foot_wearable_obj = RIGHT_FOOT_WEARABLE != NONE ?
-    import(_get_clothing_part_path(RIGHT_FOOT_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_FOOT_WEARABLE)) :
     undef;
 right_leg_wearable_obj = RIGHT_LEG_WEARABLE != NONE ?
-    import(_get_clothing_part_path(RIGHT_LEG_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_LEG_WEARABLE)) :
     undef;
 
 left_arm_wearable_obj = LEFT_ARM_WEARABLE != NONE ?
-    import(_get_clothing_part_path(LEFT_ARM_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_ARM_WEARABLE)) :
     undef;
 left_hand_wearable_obj = LEFT_HAND_WEARABLE != NONE ?
-    import(_get_clothing_part_path(LEFT_HAND_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_HAND_WEARABLE)) :
     undef;
 
 right_arm_wearable_obj = RIGHT_ARM_WEARABLE != NONE ?
-    import(_get_clothing_part_path(RIGHT_ARM_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_ARM_WEARABLE)) :
     undef;
 right_hand_wearable_obj = RIGHT_HAND_WEARABLE != NONE ?
-    import(_get_clothing_part_path(RIGHT_HAND_WEARABLE)) :
+    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_HAND_WEARABLE)) :
     undef;
 
 left_hand_wieldable_obj = WIELDABLE_LEFT_HAND != NONE ?
-    import(_get_wieldable_part(WIELDABLE_LEFT_HAND, "left_hand")) :
+    import(get_wieldable_part_path(ADULT_PATH_PREFIX,WIELDABLE_LEFT_HAND, "left_hand")) :
     undef;
 right_hand_wieldable_obj = WIELDABLE_RIGHT_HAND != NONE ?
-    import(_get_wieldable_part(WIELDABLE_RIGHT_HAND, "right_hand")) :
+    import(get_wieldable_part_path(ADULT_PATH_PREFIX,WIELDABLE_RIGHT_HAND, "right_hand")) :
     undef;
 
 multi_layer_two_point_five_d(
@@ -259,125 +262,19 @@ multi_layer_two_point_five_d(
 
 // wieldables are done separately since they can be large images and do not necessarily match the sizing of the original character image
 if (WIELDABLE_LEFT_HAND != NONE) {
-    _get_wieldable(left_hand_wieldable_obj, WIELDABLE_LEFT_HAND_OFFSET);
+    build_wieldable_shape(
+        obj = left_hand_wieldable_obj,
+        layer_offset = WIELDABLE_LEFT_HAND_OFFSET,
+        character_pixel_dimensions = CHARACTER_PIXEL_DIMENSIONS,
+        pixel_size = PIXEL_SIZE
+    );
 }
 
 if (WIELDABLE_RIGHT_HAND != NONE) {
-    _get_wieldable(right_hand_wieldable_obj, WIELDABLE_RIGHT_HAND_OFFSET);
+    build_wieldable_shape(
+        obj = right_hand_wieldable_obj,
+        layer_offset = WIELDABLE_RIGHT_HAND_OFFSET,
+        character_pixel_dimensions = CHARACTER_PIXEL_DIMENSIONS,
+        pixel_size = PIXEL_SIZE
+    );
 }
-
-module _get_wieldable(obj, layer_offset) {
-    modified_map = _add_height_map_offset(
-        obj["height_map"],
-        layer_offset
-    );
-
-    dimensions = [len(obj["image"][0]), len(obj["image"])];
-
-    translate([-(dimensions[0] - CHARACTER_PIXEL_DIMENSIONS) * PIXEL_SIZE, 0, 0]) {
-        two_point_five_d(
-            image_array = obj["image"],
-            height_map = modified_map,
-            pixel_size = PIXEL_SIZE,
-            center = false
-        );
-    }
-}
-
-function _get_body_part_path(part, gender, index = undef) =
-    is_undef(index) ? str(
-        "../../fixtures/dwarf/",
-        "adult",
-        "_",
-        part,
-        "_",
-        gender,
-        ".json"
-    ) : str(
-        "../../fixtures/dwarf/",
-        "adult",
-        "_",
-        part,
-        "_",
-        gender,
-        "_",
-        index,
-        ".json"
-    );
-
-function _get_hair_part_path(type) = str(
-    "../../fixtures/dwarf/",
-    "adult",
-    "_",
-    "hair",
-    "_",
-    type,
-    ".json"
-);
-
-function _get_beard_part_path(type) = str(
-    "../../fixtures/dwarf/",
-    "adult",
-    "_",
-    "beard",
-    "_",
-    type,
-    ".json"
-);
-
-function _get_clothing_part_path(type, body_part = undef) =
-    is_undef(body_part) ? str(
-        "../../fixtures/dwarf/",
-        "adult",
-        "_",
-        "clothing",
-        "_",
-        type,
-        ".json"
-    ) : str(
-        "../../fixtures/dwarf/",
-        "adult",
-        "_",
-        "clothing",
-        "_",
-        body_part,
-        "_",
-        type,
-        ".json"
-    );
-
-function _get_wieldable_part(type, hand) =
-    str(
-        "../../fixtures/dwarf/",
-        "adult",
-        "_",
-        "wieldables",
-        "_",
-        type,
-        "_",
-        hand,
-        ".json"
-    );
-
-function _add_height_map_offset(
-    original_map,
-    additional_offset,
-    current_index = 0,
-    modified_map = []
-) = let(
-        original_pairs = [for (k = original_map) [k, original_map[k]]]
-    )
-    current_index < len(original_pairs) ?
-        _add_height_map_offset(
-            original_map,
-            additional_offset,
-            current_index + 1,
-            concat(
-                modified_map, [[
-                    original_pairs[current_index][0],
-                    original_pairs[current_index][1] + additional_offset
-                ]]
-            )
-        ) : object(modified_map);
-
-

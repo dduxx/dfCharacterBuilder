@@ -64,109 +64,112 @@ CLOTHING_OFFSET = 3;
 
 module __Customizer_Limit__ () {}
 
+CHILD_PATH_PREFIX = "../../fixtures/dwarf/child_";
+
 head_obj = HEAD > 0 ?
-    import(_get_body_part_path("face", GENDER, HEAD)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "face", GENDER, HEAD)) :
     undef;
 
 body_obj = import(
-    _get_body_part_path(
+    get_body_part_path(
+        CHILD_PATH_PREFIX,
         "body",
         GENDER,
     )
 );
 
 left_shoulder_obj = HAS_LEFT_SHOULDER ?
-    import(_get_body_part_path("left_shoulder", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "left_shoulder", GENDER)) :
     undef;
 
 left_hand_obj = HAS_LEFT_HAND ?
-    import(_get_body_part_path("left_hand", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "left_hand", GENDER)) :
     undef;
 
 right_shoulder_obj = HAS_RIGHT_SHOULDER ?
-    import(_get_body_part_path("right_shoulder", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "right_shoulder", GENDER)) :
     undef;
 
 right_hand_obj = HAS_RIGHT_HAND ?
-    import(_get_body_part_path("right_hand", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "right_hand", GENDER)) :
     undef;
 
 left_leg_obj = HAS_LEFT_LEG ?
-    import(_get_body_part_path("left_leg", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "left_leg", GENDER)) :
     undef;
 
 left_foot_obj = HAS_LEFT_FOOT ?
-    import(_get_body_part_path("left_foot", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "left_foot", GENDER)) :
     undef;
 
 right_leg_obj = HAS_RIGHT_LEG ?
-    import(_get_body_part_path("right_leg", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "right_leg", GENDER)) :
     undef;
 
 right_foot_obj = HAS_RIGHT_FOOT ?
-    import(_get_body_part_path("right_foot", GENDER)) :
+    import(get_body_part_path(CHILD_PATH_PREFIX, "right_foot", GENDER)) :
     undef;
 
 headwear_obj = HEADWEAR != NONE ?
-    import(_get_clothing_part_path(HEADWEAR)) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,HEADWEAR)) :
     undef;
 
 hood_obj = HAS_HOOD ?
-    import(_get_clothing_part_path("hood")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"hood")) :
     undef;
 
 cape_obj = HAS_CAPE ?
-    import(_get_clothing_part_path("cape")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"cape")) :
     undef;
 
 earing_obj = HAS_EARINGS ?
-    import(_get_clothing_part_path("earring")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"earring")) :
     undef;
 
 left_armwear_obj = HAS_LEFT_ARMWEAR ?
-    import(_get_clothing_part_path("left_arm")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"left_arm")) :
     undef;
 left_handwear_obj = HAS_LEFT_HANDWEAR ?
-    import(_get_clothing_part_path("left_hand")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"left_hand")) :
     undef;
 left_legwear_obj = HAS_LEFT_LEGWEAR ?
-    import(_get_clothing_part_path("left_leg")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"left_leg")) :
     undef;
 left_footwear_obj = HAS_LEFT_FOOTWEAR ?
-    import(_get_clothing_part_path("left_foot")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"left_foot")) :
     undef;
 
 right_armwear_obj = HAS_RIGHT_ARMWEAR ?
-    import(_get_clothing_part_path("right_arm")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"right_arm")) :
     undef;
 right_handwear_obj = HAS_RIGHT_HANDWEAR ?
-    import(_get_clothing_part_path("right_hand")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"right_hand")) :
     undef;
 right_legwear_obj = HAS_RIGHT_LEGWEAR ?
-    import(_get_clothing_part_path("right_leg")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"right_leg")) :
     undef;
 right_footwear_obj = HAS_RIGHT_FOOTWEAR ?
-    import(_get_clothing_part_path("right_foot")) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,"right_foot")) :
     undef;
 
 face_covering_obj = FACE_COVERING != NONE ?
-    import(_get_clothing_part_path(FACE_COVERING)) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,FACE_COVERING)) :
     undef;
 
 shirt_obj = SHIRT != NONE ?
-    import(_get_clothing_part_path(SHIRT)) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,SHIRT)) :
     undef;
 
 waist_obj = WAIST != NONE ?
-    import(_get_clothing_part_path(WAIST)) :
+    import(get_clothing_part_path(CHILD_PATH_PREFIX,WAIST)) :
     undef;
 
 hair_obj = HAIR_STYLE != NONE ?
-    import(_get_hair_part_path(HAIR_STYLE)) :
+    import(get_hair_part_path(CHILD_PATH_PREFIX, HAIR_STYLE)) :
     undef;
 
 beard_obj = BEARD_STYLE != NONE ?
-    import(_get_beard_part_path(BEARD_STYLE)) :
+    import(get_beard_part_path(CHILD_PATH_PREFIX, BEARD_STYLE)) :
     undef;
 
 multi_layer_two_point_five_d(
@@ -229,55 +232,5 @@ multi_layer_two_point_five_d(
         HEADWEAR != NONE ? CLOTHING_OFFSET : undef,
     ],
     pixel_size = PIXEL_SIZE,
-);
-
-function _get_body_part_path(part, gender, index = undef) =
-    is_undef(index) ? str(
-        "../../fixtures/dwarf/",
-        "child",
-        "_",
-        part,
-        "_",
-        gender,
-        ".json"
-    ) : str(
-        "../../fixtures/dwarf/",
-        "child",
-        "_",
-        part,
-        "_",
-        gender,
-        "_",
-        index,
-        ".json"
-    );
-
-function _get_clothing_part_path(type) = str(
-    "../../fixtures/dwarf/",
-    "child",
-    "_",
-    "clothing",
-    "_",
-    type,
-    ".json"
-);
-
-function _get_hair_part_path(type) = str(
-    "../../fixtures/dwarf/",
-    "child",
-    "_",
-    "hair",
-    "_",
-    type,
-    ".json"
-);
-
-function _get_beard_part_path(type) = str(
-    "../../fixtures/dwarf/",
-    "child",
-    "_",
-    "beard",
-    "_",
-    type,
-    ".json"
+    center = false,
 );

@@ -6,5 +6,5 @@ two_point_five_d(
     baby_obj["image"],
     baby_obj["height_map"],
     pixel_size = 1,
-    center = true
+    center = false
 );
