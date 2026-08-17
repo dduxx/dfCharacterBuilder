@@ -71,17 +71,25 @@ CLOTHING_OFFSET = 3;
 
 WIELDABLE_LEFT_HAND = "none"; // [none:None, buckler_grown:Buckler Grown, buckler_standard:Buckler Standard, buckler_wood:Buckler Wood, crutch:Crutch, shield_grown:Shield Grown, shield_standard:Shield Standard, shield_wood:Shield Wood, large_axe_battle_grown:Axe Battle Grown, large_axe_battle:Axe Battle, large_axe_great_grown:Axe Great Grown, large_axe_great:Axe Great, large_axe_training:Axe Training, large_blowgun_grown:Blowgun Grown, large_blowgun:Blowgun, large_bow_grown:Bow Grown, large_bow:Bow, large_cleaver_1:Cleaver 1, large_cleaver_2:Cleaver 2, large_cleaver_3:Cleaver 3, large_crossbow_grown:Crossbow Grown, large_crossbow:Crossbow, large_dagger_large_grown:Dagger Grown, large_dagger_large:Dagger Large, large_flail_grown:Flail Grown, large_flail:Flail, large_fork:Fork, large_halberd_grown:Halberd Grown, large_halberd:Halberd, large_hammer_war_grown:Hammer War Grown, large_hammer_war:Hammer War, large_knife:Knife, large_mace_grown:Mace Grown, large_mace:Mace, large_maul_grown:Maul Grown, large_maul:Maul, large_morningstar_grown:Morningstar Grown, large_morningstar:Morningstar, large_pick_grown:Pick Grown, large_pick:Pick, large_pike_grown:Pike Grown, large_pike:Pike, large_scimitar_grown:Scimitar Grown, large_scimitar:Scimitar, large_scourge_grown:Scourge Grown, large_scourge:Scourge, large_spear_grown:Spear Grown, large_spear:Spear, large_spear_training:Spear Training, large_stone_axe_1:Stone Axe 1, large_stone_axe_2:Stone Axe 2, large_stone_axe_3:Stone Axe 3, large_stone_axe_4:Stone Axe 4, large_sword_2h_grown:Sword 2H Grown, large_sword_2h:Sword 2H, large_sword_long_grown:Sword Long Grown, large_sword_long:Sword Long, large_sword_short_grown:Sword Short Grown, large_sword_short:Sword Short, large_sword_short_training:Sword Short Training, large_sword_stone:Sword Stone, large_whip_grown:Whip Grown, large_whip:Whip]
 
-WIELDABLE_LEFT_HAND_OFFSET = 4;
+// Number of pixels to move the right hand wieldable in the x direction
+WIELDABLE_LEFT_HAND_X_OFFSET = -32;
+// Number of pixels to move the right hand wieldable in the y direction
+WIELDABLE_LEFT_HAND_Y_OFFSET = 0;
+// Number of additional mm to extrude the right hand wildable in the z direction
+WIELDABLE_LEFT_HAND_Z_OFFSET = 4;
 
 WIELDABLE_RIGHT_HAND = "none"; // [none:None, buckler_standard:Buckler Standard, buckler_wood:Buckler Wood, crutch:Crutch, shield_standard:Shield Standard, shield_wood:Shield Wood, large_axe_battle_grown_right_hand:Axe Battle Grown, large_axe_battle_grown:Axe Battle Grown, large_axe_battle:Axe Battle, large_axe_great_grown_left_hand:Axe Great Grown Left Hand, large_axe_great:Axe Great, large_axe_training:Axe Training, large_blowgun_grown:Blowgun Grown, large_blowgun:Blowgun, large_bow_grown:Bow Grown, large_bow:Bow, large_buckler_grown:Buckler Grown, large_cleaver_1:Cleaver 1, large_cleaver_2:Cleaver 2, large_cleaver_3:Cleaver 3, large_crossbow_grown:Crossbow Grown, large_crossbow:Crossbow, large_dagger_large_grown:Dagger Grown, large_dagger_large:Dagger Large, large_flail_grown:Flail Grown, large_flail:Flail, large_fork:Fork, large_halberd_grown:Halberd Grown, large_halberd:Halberd, large_hammer_war_grown:Hammer War Grown, large_hammer_war:Hammer War, large_knife:Knife, large_mace_grown:Mace Grown, large_mace:Mace, large_maul_grown:Maul Grown, large_maul:Maul, large_morningstar_grown:Morningstar Grown, large_morningstar:Morningstar, large_pick_grown:Pick Grown, large_pick:Pick, large_pike_grown:Pike Grown, large_pike:Pike, large_scimitar_grown:Scimitar Grown, large_scimitar:Scimitar, large_scourge_grown:Scourge Grown, large_scourge:Scourge, large_shield_grown:Shield Grown, large_spear_grown:Spear Grown, large_spear:Spear, large_spear_training:Spear Training, large_stone_axe_1:Stone Axe 1, large_stone_axe_2:Stone Axe 2, large_stone_axe_3:Stone Axe 3, large_stone_axe_4:Stone Axe 4, large_sword_2h_grown:Sword 2H Grown, large_sword_2h:Sword 2H, large_sword_long_grown:Sword Long Grown, large_sword_long:Sword Long, large_sword_short_grown:Sword Short Grown, large_sword_short:Sword Short, large_sword_short_training:Sword Short Training, large_sword_stone:Sword Stone, large_whip_grown:Whip Grown, large_whip:Whip]
 
-WIELDABLE_RIGHT_HAND_OFFSET = 0;
+// Number of pixels to move the right hand wieldable in the x direction
+WIELDABLE_RIGHT_HAND_X_OFFSET = -27;
+// Number of pixels to move the right hand wieldable in the y direction
+WIELDABLE_RIGHT_HAND_Y_OFFSET = -1;
+// Number of additional mm to extrude the right hand wildable in the z direction
+WIELDABLE_RIGHT_HAND_Z_OFFSET = 0;
 
 module __Customizer_Limit__ () {}
 
 ADULT_PATH_PREFIX = "../../fixtures/dwarf/adult_";
-
-CHARACTER_PIXEL_DIMENSIONS = 32;
 
 head_obj = HEAD > 0 ?
     import(get_body_part_path(ADULT_PATH_PREFIX, "face", GENDER, HEAD)) :
@@ -264,8 +272,9 @@ multi_layer_two_point_five_d(
 if (WIELDABLE_LEFT_HAND != NONE) {
     build_wieldable_shape(
         obj = left_hand_wieldable_obj,
-        layer_offset = WIELDABLE_LEFT_HAND_OFFSET,
-        character_pixel_dimensions = CHARACTER_PIXEL_DIMENSIONS,
+        layer_offset = WIELDABLE_LEFT_HAND_Z_OFFSET,
+        wieldable_x_offset = WIELDABLE_LEFT_HAND_X_OFFSET,
+        wieldable_y_offset = WIELDABLE_LEFT_HAND_Y_OFFSET,
         pixel_size = PIXEL_SIZE
     );
 }
@@ -273,8 +282,9 @@ if (WIELDABLE_LEFT_HAND != NONE) {
 if (WIELDABLE_RIGHT_HAND != NONE) {
     build_wieldable_shape(
         obj = right_hand_wieldable_obj,
-        layer_offset = WIELDABLE_RIGHT_HAND_OFFSET,
-        character_pixel_dimensions = CHARACTER_PIXEL_DIMENSIONS,
+        layer_offset = WIELDABLE_RIGHT_HAND_Z_OFFSET,
+        wieldable_x_offset = WIELDABLE_RIGHT_HAND_X_OFFSET,
+        wieldable_y_offset = WIELDABLE_RIGHT_HAND_Y_OFFSET,
         pixel_size = PIXEL_SIZE
     );
 }

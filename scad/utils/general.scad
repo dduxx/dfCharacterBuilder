@@ -1,7 +1,11 @@
 NONE = "none";
 
 module build_wieldable_shape(
-    obj, layer_offset, character_pixel_dimensions, pixel_size, center = false
+    obj,
+    layer_offset,
+    wieldable_x_offset = 0,
+    wieldable_y_offset = 0,
+    pixel_size, center = false
 ) {
     modified_map = add_height_map_offset(
         obj["height_map"],
@@ -10,7 +14,7 @@ module build_wieldable_shape(
 
     dimensions = [len(obj["image"][0]), len(obj["image"])];
 
-    translate([-(dimensions[0] - character_pixel_dimensions) * pixel_size, 0, 0]) {
+    translate([wieldable_x_offset * pixel_size, wieldable_y_offset * pixel_size, 0]) {
         two_point_five_d(
             image_array = obj["image"],
             height_map = modified_map,
@@ -32,6 +36,19 @@ function get_body_part_path(prefix, part, gender, index = undef) =
         part,
         "_",
         gender,
+        "_",
+        index,
+        ".json"
+    );
+
+function get_genderless_body_part_path(prefix, part, index = undef) =
+    is_undef(index) ? str(
+        prefix,
+        part,
+        ".json"
+    ) : str(
+        prefix,
+        part,
         "_",
         index,
         ".json"
