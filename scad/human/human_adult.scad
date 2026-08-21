@@ -91,7 +91,7 @@ WIELDABLE_RIGHT_HAND_Z_OFFSET = 0;
 
 module __Customizer_Limit__ () {}
 
-ADULT_PATH_PREFIX = "../../fixtures/dwarf/adult_";
+ADULT_PATH_PREFIX = "../../fixtures/human/adult_";
 
 head_obj = HEAD > 0 ?
     import(get_body_part_path(ADULT_PATH_PREFIX, "face", GENDER, HEAD)) :
@@ -270,7 +270,6 @@ multi_layer_two_point_five_d(
     center = false
 );
 
-// wieldables are done separately since they can be large images and do not necessarily match the sizing of the original character image
 if (WIELDABLE_LEFT_HAND != NONE) {
     build_wieldable_shape(
         obj = left_hand_wieldable_obj,
