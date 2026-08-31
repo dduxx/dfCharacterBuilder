@@ -42,6 +42,8 @@ buildscad pull
 
 All generators are located in their own directories. Navigate to `scad/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
+Adult humans and dwarves share a single generator: `scad/humanoid/humanoid_adult.scad`. Select the desired creature from its **RACE** setting in the Customizer.
+
 ## Project Structure
 
 ```
@@ -49,10 +51,9 @@ dfCharacterBuilder/
 ├── buildscad.properties   # Project configuration (assemblies, OpenSCAD path, etc.)
 ├── deps.json              # Dependencies (twoPointFiveD)
 ├── scad/                  # OpenSCAD source files
-│   ├── human/
-│   │   └── human_adult.scad
+│   ├── humanoid/
+│   │   └── humanoid_adult.scad
 │   ├── dwarf/
-│   │   ├── dwarf_adult.scad
 │   │   ├── dwarf_child.scad
 │   │   └── dwarf_baby.scad
 │   ├── ogre/
@@ -68,7 +69,8 @@ dfCharacterBuilder/
 │   │   └── megabeast_baby.scad
 │   ├── werebeasts/
 │   │   └── werebeasts.scad
-│   └── utils/
+│   └── libs/
+│       ├── creature.scad
 │       └── general.scad
 ├── fixtures/              # JSON fixtures (pixel arrays + height maps)
 │   ├── human/
