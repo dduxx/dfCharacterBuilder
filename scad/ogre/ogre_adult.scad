@@ -1,5 +1,5 @@
 include <../../dependencies/dduxx:twoPointFiveD:v1.0.0/scad/main.scad>
-include <../utils/general.scad>
+include <../libs/general.scad>
 
 /* [General:] */
 

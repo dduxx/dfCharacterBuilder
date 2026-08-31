@@ -1,9 +1,10 @@
-include <../../dependencies/dduxx:twoPointFiveD:v1.0.0/scad/main.scad>
-include <../utils/general.scad>
+include <../libs/creature.scad>
 
 // TODO we need to combine the wieldables if we can
 
 /* [General:] */
+RACE = "human"; // [human:Human, dwarf:Dwarf]
+
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;
 
@@ -91,202 +92,47 @@ WIELDABLE_RIGHT_HAND_Z_OFFSET = 0;
 
 module __Customizer_Limit__ () {}
 
-ADULT_PATH_PREFIX = "../../fixtures/dwarf/adult_";
-
-head_obj = HEAD > 0 ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "face", GENDER, HEAD)) :
-    undef;
-
-body_obj = import(
-    get_body_part_path(
-        ADULT_PATH_PREFIX,
-        "body",
-        GENDER,
-    )
-);
-
-left_shoulder_obj = HAS_LEFT_SHOULDER ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "left_shoulder", GENDER)) :
-    undef;
-
-left_hand_obj = HAS_LEFT_HAND ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "left_hand", GENDER)) :
-    undef;
-
-right_shoulder_obj = HAS_RIGHT_SHOULDER ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "right_shoulder", GENDER)) :
-    undef;
-
-right_hand_obj = HAS_RIGHT_HAND ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "right_hand", GENDER)) :
-    undef;
-
-left_leg_obj = HAS_LEFT_LEG ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "left_leg", GENDER)) :
-    undef;
-
-left_foot_obj = HAS_LEFT_FOOT ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "left_foot", GENDER)) :
-    undef;
-
-right_leg_obj = HAS_RIGHT_LEG ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "right_leg", GENDER)) :
-    undef;
-
-right_foot_obj = HAS_RIGHT_FOOT ?
-    import(get_body_part_path(ADULT_PATH_PREFIX, "right_foot", GENDER)) :
-    undef;
-
-hair_obj = HAIR_STYLE != NONE ?
-    import(get_hair_part_path(ADULT_PATH_PREFIX, HAIR_STYLE)) :
-    undef;
-
-beard_obj = BEARD_STYLE != NONE ?
-    import(get_beard_part_path(ADULT_PATH_PREFIX, BEARD_STYLE)) :
-    undef;
-
-hood_obj = HAS_HOOD ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,"hood")) :
-    undef;
-
-cape_obj = HAS_CAPE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,"cape")) :
-    undef;
-
-earing_obj = HAS_EARINGS ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,"earring")) :
-    undef;
-
-headwear_obj = HEADWEAR != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,HEADWEAR)) :
-    undef;
-
-face_covering_obj = FACE_COVERING != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,FACE_COVERING)) :
-    undef;
-
-shirt_obj = SHIRT != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,SHIRT)) :
-    undef;
-
-waist_obj = WAIST != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,WAIST)) :
-    undef;
-
-left_foot_wearable_obj = LEFT_FOOT_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_FOOT_WEARABLE)) :
-    undef;
-left_leg_wearable_obj = LEFT_LEG_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_LEG_WEARABLE)) :
-    undef;
-right_foot_wearable_obj = RIGHT_FOOT_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_FOOT_WEARABLE)) :
-    undef;
-right_leg_wearable_obj = RIGHT_LEG_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_LEG_WEARABLE)) :
-    undef;
-
-left_arm_wearable_obj = LEFT_ARM_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_ARM_WEARABLE)) :
-    undef;
-left_hand_wearable_obj = LEFT_HAND_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,LEFT_HAND_WEARABLE)) :
-    undef;
-
-right_arm_wearable_obj = RIGHT_ARM_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_ARM_WEARABLE)) :
-    undef;
-right_hand_wearable_obj = RIGHT_HAND_WEARABLE != NONE ?
-    import(get_clothing_part_path(ADULT_PATH_PREFIX,RIGHT_HAND_WEARABLE)) :
-    undef;
-
-left_hand_wieldable_obj = WIELDABLE_LEFT_HAND != NONE ?
-    import(get_wieldable_part_path(ADULT_PATH_PREFIX,WIELDABLE_LEFT_HAND, "left_hand")) :
-    undef;
-right_hand_wieldable_obj = WIELDABLE_RIGHT_HAND != NONE ?
-    import(get_wieldable_part_path(ADULT_PATH_PREFIX,WIELDABLE_RIGHT_HAND, "right_hand")) :
-    undef;
-
-multi_layer_two_point_five_d(
-    image_layers = [
-        hood_obj,
-        cape_obj,
-        body_obj,
-        shirt_obj,
-        head_obj,
-        hair_obj,
-        beard_obj,
-        earing_obj,
-        face_covering_obj,
-        left_shoulder_obj,
-        left_arm_wearable_obj,
-        left_hand_obj,
-        left_hand_wearable_obj,
-        right_shoulder_obj,
-        right_arm_wearable_obj,
-        right_hand_obj,
-        right_hand_wearable_obj,
-        left_leg_obj,
-        left_leg_wearable_obj,
-        left_foot_obj,
-        left_foot_wearable_obj,
-        right_leg_obj,
-        right_leg_wearable_obj,
-        right_foot_obj,
-        right_foot_wearable_obj,
-        waist_obj,
-        headwear_obj,
-    ],
-    layer_offsets = [
-        HAS_HOOD ? HOOD_CAPE_OFFSET : undef,
-        HAS_CAPE ? HOOD_CAPE_OFFSET : undef,
-        BODY_OFFSET,
-        SHIRT != NONE ? CLOTHING_OFFSET : undef,
-        HEAD > 0 ? BODY_OFFSET : undef,
-        HAIR_STYLE != NONE ? HAIR_OFFSET : undef,
-        BEARD_STYLE != NONE ? BEARD_OFFSET : undef,
-        HAS_EARINGS ? CLOTHING_OFFSET : undef,
-        FACE_COVERING != NONE ? CLOTHING_OFFSET : undef,
-        HAS_LEFT_SHOULDER ? BODY_OFFSET : undef,
-        LEFT_ARM_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_LEFT_HAND ? BODY_OFFSET : undef,
-        LEFT_HAND_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_RIGHT_SHOULDER ? BODY_OFFSET : undef,
-        RIGHT_ARM_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_RIGHT_HAND ? BODY_OFFSET : undef,
-        RIGHT_HAND_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_LEFT_LEG ? BODY_OFFSET : undef,
-        LEFT_LEG_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_LEFT_FOOT ? BODY_OFFSET : undef,
-        LEFT_FOOT_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_RIGHT_LEG ? BODY_OFFSET : undef,
-        RIGHT_LEG_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        HAS_RIGHT_FOOT ? BODY_OFFSET : undef,
-        RIGHT_FOOT_WEARABLE != NONE ? CLOTHING_OFFSET : undef,
-        WAIST != NONE ? CLOTHING_OFFSET : undef,
-        HEADWEAR != NONE ? CLOTHING_OFFSET : undef,
-    ],
+build_humanoid_adult(
+    path_prefix = str("../../fixtures/", RACE, "/adult_"),
     pixel_size = PIXEL_SIZE,
-    center = false
+    gender = GENDER,
+    head = HEAD,
+    has_left_shoulder = HAS_LEFT_SHOULDER,
+    has_left_hand = HAS_LEFT_HAND,
+    has_right_shoulder = HAS_RIGHT_SHOULDER,
+    has_right_hand = HAS_RIGHT_HAND,
+    has_left_leg = HAS_LEFT_LEG,
+    has_left_foot = HAS_LEFT_FOOT,
+    has_right_leg = HAS_RIGHT_LEG,
+    has_right_foot = HAS_RIGHT_FOOT,
+    body_offset = BODY_OFFSET,
+    hair_style = HAIR_STYLE,
+    hair_offset = HAIR_OFFSET,
+    beard_style = BEARD_STYLE,
+    beard_offset = BEARD_OFFSET,
+    has_hood = HAS_HOOD,
+    has_cape = HAS_CAPE,
+    has_earings = HAS_EARINGS,
+    headwear = HEADWEAR,
+    face_covering = FACE_COVERING,
+    shirt = SHIRT,
+    waist = WAIST,
+    left_arm_wearable = LEFT_ARM_WEARABLE,
+    left_hand_wearable = LEFT_HAND_WEARABLE,
+    right_arm_wearable = RIGHT_ARM_WEARABLE,
+    right_hand_wearable = RIGHT_HAND_WEARABLE,
+    left_leg_wearable = LEFT_LEG_WEARABLE,
+    left_foot_wearable = LEFT_FOOT_WEARABLE,
+    right_leg_wearable = RIGHT_LEG_WEARABLE,
+    right_foot_wearable = RIGHT_FOOT_WEARABLE,
+    hood_cape_offset = HOOD_CAPE_OFFSET,
+    clothing_offset = CLOTHING_OFFSET,
+    wieldable_left_hand = WIELDABLE_LEFT_HAND,
+    wieldable_left_hand_x_offset = WIELDABLE_LEFT_HAND_X_OFFSET,
+    wieldable_left_hand_y_offset = WIELDABLE_LEFT_HAND_Y_OFFSET,
+    wieldable_left_hand_z_offset = WIELDABLE_LEFT_HAND_Z_OFFSET,
+    wieldable_right_hand = WIELDABLE_RIGHT_HAND,
+    wieldable_right_hand_x_offset = WIELDABLE_RIGHT_HAND_X_OFFSET,
+    wieldable_right_hand_y_offset = WIELDABLE_RIGHT_HAND_Y_OFFSET,
+    wieldable_right_hand_z_offset = WIELDABLE_RIGHT_HAND_Z_OFFSET,
 );
-
-// wieldables are done separately since they can be large images and do not necessarily match the sizing of the original character image
-if (WIELDABLE_LEFT_HAND != NONE) {
-    build_wieldable_shape(
-        obj = left_hand_wieldable_obj,
-        layer_offset = WIELDABLE_LEFT_HAND_Z_OFFSET,
-        wieldable_x_offset = WIELDABLE_LEFT_HAND_X_OFFSET,
-        wieldable_y_offset = WIELDABLE_LEFT_HAND_Y_OFFSET,
-        pixel_size = PIXEL_SIZE
-    );
-}
-
-if (WIELDABLE_RIGHT_HAND != NONE) {
-    build_wieldable_shape(
-        obj = right_hand_wieldable_obj,
-        layer_offset = WIELDABLE_RIGHT_HAND_Z_OFFSET,
-        wieldable_x_offset = WIELDABLE_RIGHT_HAND_X_OFFSET,
-        wieldable_y_offset = WIELDABLE_RIGHT_HAND_Y_OFFSET,
-        pixel_size = PIXEL_SIZE
-    );
-}
