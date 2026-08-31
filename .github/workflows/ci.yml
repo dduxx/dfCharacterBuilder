@@ -1,0 +1,10 @@
+name: CI
+
+on:
+  pull_request:
+
+jobs:
+  ci:
+    uses: dduxx/buildscad-workflows/.github/workflows/ci.yml@v1.0.1
+    with:
+      openscad: openscad-nightly
