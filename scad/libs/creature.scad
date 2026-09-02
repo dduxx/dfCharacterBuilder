@@ -3,6 +3,7 @@ include <general.scad>
 
 module build_humanoid_adult(
     path_prefix,
+    wieldables_path_prefix,
     pixel_size = 1,
     gender = "m",
     head = 1,
@@ -153,10 +154,10 @@ module build_humanoid_adult(
         undef;
 
     left_hand_wieldable_obj = wieldable_left_hand != NONE ?
-        import(get_wieldable_part_path(path_prefix,wieldable_left_hand, "left_hand")) :
+        import(get_wieldable_part_path(wieldables_path_prefix,wieldable_left_hand, "left_hand")) :
         undef;
     right_hand_wieldable_obj = wieldable_right_hand != NONE ?
-        import(get_wieldable_part_path(path_prefix,wieldable_right_hand, "right_hand")) :
+        import(get_wieldable_part_path(wieldables_path_prefix,wieldable_right_hand, "right_hand")) :
         undef;
 
     multi_layer_two_point_five_d(
