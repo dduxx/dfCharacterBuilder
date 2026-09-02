@@ -10,8 +10,8 @@ This project is a work in progress. I intend to work on adding greater support f
 
 | Type       | Stages                | Customization                                          |
 |------------|-----------------------|--------------------------------------------------------|
-| Human      | Adult                 | Full (gender, hair, beard, body parts, clothing, armor, weapons) |
-| Dwarf      | Adult, Child, Baby    | Full (same as human)                                   |
+| Human      | Adult, Child, Baby    | Full (gender, hair, body parts, clothing, armor, weapons); children have no beards |
+| Dwarf      | Adult, Child, Baby    | Full (same as human, plus beards on adults and children) |
 | Ogre       | Adult, Child          | Type selection from fixtures                           |
 | Troll      | Adult, Child, Baby    | Type selection from fixtures                           |
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
@@ -42,7 +42,7 @@ buildscad pull
 
 All generators are located in their own directories. Navigate to `scad/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
-Adult humans and dwarves share a single generator: `scad/humanoid/humanoid_adult.scad`. Select the desired creature from its **RACE** setting in the Customizer.
+Humans and dwarves share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer.
 
 ## Project Structure
 
@@ -52,10 +52,9 @@ dfCharacterBuilder/
 ├── deps.json              # Dependencies (twoPointFiveD)
 ├── scad/                  # OpenSCAD source files
 │   ├── humanoid/
-│   │   └── humanoid_adult.scad
-│   ├── dwarf/
-│   │   ├── dwarf_child.scad
-│   │   └── dwarf_baby.scad
+│   │   ├── humanoid_adult.scad
+│   │   ├── humanoid_child.scad
+│   │   └── humanoid_baby.scad
 │   ├── ogre/
 │   │   ├── ogre_adult.scad
 │   │   └── ogre_child.scad
