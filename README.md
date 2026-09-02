@@ -103,14 +103,20 @@ dfCharacterBuilder/
 │   ├── ogre/
 │   ├── troll/
 │   ├── megabeasts/
-│   └── werebeasts/
+│   ├── werebeasts/
+│   └── wieldables/
+│       ├── default/
+│       └── tall/
 ├── scripts/               # Scripts for extracting pixel data from game sprites
 │   ├── dwarf/
 │   ├── human/
 │   ├── megabeasts/
 │   ├── ogre/
 │   ├── troll/
-│   └── werebeasts/
+│   ├── werebeasts/
+│   └── wieldables/
+│       ├── default/
+│       └── tall/
 └── dependencies/          # Fetched by buildscad pull
     └── dduxx:twoPointFiveD:v1.0.0/
 ```

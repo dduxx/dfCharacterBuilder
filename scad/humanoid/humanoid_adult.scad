@@ -94,6 +94,11 @@ module __Customizer_Limit__ () {}
 
 build_humanoid_adult(
     path_prefix = str("../../fixtures/", RACE, "/adult_"),
+    wieldables_path_prefix = str(
+        "../../fixtures/wieldables/",
+        RACE == "human" ? "tall" : "default",
+        "/adult_"
+    ),
     pixel_size = PIXEL_SIZE,
     gender = GENDER,
     head = HEAD,
