@@ -84,8 +84,6 @@ body_obj = import(
     get_genderless_body_part_path(TROLL_ADULT_PATH_PREFIX, "body")
 );
 
-echo(len(body_obj["image"]), len(body_obj["image"][0]));
-
 head_obj = HAS_HEAD ?
     import(get_genderless_body_part_path(TROLL_ADULT_PATH_PREFIX, "head")) :
     undef;
