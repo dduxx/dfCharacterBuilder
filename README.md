@@ -44,6 +44,32 @@ All generators are located in their own directories. Navigate to `scad/<race-typ
 
 Humans and dwarves share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer.
 
+## Extracting Fixtures
+
+The `scripts/` directory contains shell scripts that extract pixel/heightmap data from the
+Dwarf Fortress game sprites into the JSON fixtures consumed by the OpenSCAD generators. Scripts
+are organized by race (`scripts/<race>/`). They are intended to be run manually; they are not
+part of the normal build.
+
+Each script invokes the `2point5dinfo` CLI to crop a region of a sprite (`-l`) and write a
+fixture file (`-o`). Two environment variables configure the inputs and outputs:
+
+| Variable                    | Description                                           | Example                    |
+|-----------------------------|-------------------------------------------------------|----------------------------|
+| `DWARF_FORTRESS_INSTALL_DIR`| Root of the Dwarf Fortress install (contains sprites) | `/path/to/Dwarf Fortress`  |
+| `FIXTURE_OUTPUT_DIR`        | Directory to write generated fixtures (this repo's `fixtures/`) | `./fixtures`      |
+
+Example:
+
+```bash
+export DWARF_FORTRESS_INSTALL_DIR="/path/to/Dwarf Fortress"
+export FIXTURE_OUTPUT_DIR="./fixtures"
+
+./scripts/dwarf/dwarf_adult.sh
+```
+
+The scripts require the `2point5dinfo` CLI to be available on your `PATH`.
+
 ## Project Structure
 
 ```
@@ -77,6 +103,13 @@ dfCharacterBuilder/
 │   ├── ogre/
 │   ├── troll/
 │   ├── megabeasts/
+│   └── werebeasts/
+├── scripts/               # Scripts for extracting pixel data from game sprites
+│   ├── dwarf/
+│   ├── human/
+│   ├── megabeasts/
+│   ├── ogre/
+│   ├── troll/
 │   └── werebeasts/
 └── dependencies/          # Fetched by buildscad pull
     └── dduxx:twoPointFiveD:v1.0.0/

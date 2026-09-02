@@ -1,0 +1,4 @@
+2point5dinfo -s 0.2 -p 1 -sa -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_graphics/graphics/images/creatures_megabeast.png:224,288,256,320 -o "${FIXTURE_OUTPUT_DIR}"/megabeasts/baby_cyclops.json
+2point5dinfo -s 0.2 -p 1 -sa -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_graphics/graphics/images/creatures_megabeast.png:224,352,256,384 -o "${FIXTURE_OUTPUT_DIR}"/megabeasts/baby_ettin.json
+2point5dinfo -s 0.2 -p 1 -sa -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_graphics/graphics/images/creatures_megabeast.png:224,416,256,448 -o "${FIXTURE_OUTPUT_DIR}"/megabeasts/baby_giant.json
+2point5dinfo -s 0.2 -p 1 -sa -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_graphics/graphics/images/creatures_megabeast.png:224,480,256,512 -o "${FIXTURE_OUTPUT_DIR}"/megabeasts/baby_minotaur.json

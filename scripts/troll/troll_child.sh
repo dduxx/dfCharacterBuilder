@@ -1,0 +1,1 @@
+2point5dinfo -sa -p 1 -s 0.2 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_graphics/graphics/images/creatures_underground_large.png:416,256,448,288 -o "${FIXTURE_OUTPUT_DIR}"/troll/child.json
