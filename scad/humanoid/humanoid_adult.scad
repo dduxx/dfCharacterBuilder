@@ -6,7 +6,7 @@ PIXEL_SIZE = 1;
 
 /* [Body Parts:] */
 
-RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf, goblin:Goblin]
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf, goblin:Goblin, kobold:Kobold]
 
 GENDER = "m"; // [m:Male, f:Female]
 
@@ -98,7 +98,7 @@ build_humanoid_adult(
     path_prefix = str("../../fixtures/", RACE, "/adult_"),
     wieldables_path_prefix = str(
         "../../fixtures/wieldables/",
-        RACE == "dwarf" || RACE == "goblin" ? "default" : "tall",
+        RACE == "dwarf" || RACE == "goblin" || RACE == "kobold" ? "default" : "tall",
         "/adult_"
     ),
     pixel_size = PIXEL_SIZE,
@@ -113,9 +113,9 @@ build_humanoid_adult(
     has_right_leg = HAS_RIGHT_LEG,
     has_right_foot = HAS_RIGHT_FOOT,
     body_offset = BODY_OFFSET,
-    hair_style = RACE == "goblin" ? NONE : HAIR_STYLE,
+    hair_style = RACE == "goblin" || RACE == "kobold" ? NONE : HAIR_STYLE,
     hair_offset = HAIR_OFFSET,
-    beard_style = RACE == "goblin" ? NONE : BEARD_STYLE,
+    beard_style = RACE == "goblin" || RACE == "kobold" ? NONE : BEARD_STYLE,
     beard_offset = BEARD_OFFSET,
     has_hood = HAS_HOOD,
     has_cape = HAS_CAPE,

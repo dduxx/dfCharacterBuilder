@@ -14,6 +14,7 @@ This project is a work in progress. I intend to work on adding greater support f
 | Dwarf      | Adult, Child, Baby    | Full (same as human)                                   |
 | Elf        | Adult, Child, Baby    | Full (same as human)                                   |
 | Goblin     | Adult, Child, Baby    | Body, clothing, armor, weapons (no hair or beards)     |
+| Kobold     | Adult, Child, Baby    | Body, clothing, armor, weapons (no hair or beards)     |
 | Ogre       | Adult, Child          | Type selection from fixtures                           |
 | Troll      | Adult, Child, Baby    | Type selection from fixtures                           |
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
@@ -44,17 +45,15 @@ buildscad pull
 
 All generators are located in their own directories. Navigate to `scad/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
-Humans, dwarves, elves, and goblins share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer. Some races have limited or no hair or beards, so those selectors are ignored for them (ie: Goblins).
+Humans, dwarves, elves, goblins, and kobolds share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer. Some races have limited or no hair or beards, so those selectors are ignored for them (ie: Goblins, Kobolds).
 
 ## Extracting Fixtures
 
 The `scripts/` directory contains shell scripts that extract pixel/heightmap data from the
 Dwarf Fortress game sprites into the JSON fixtures consumed by the OpenSCAD generators. Scripts
-are organized by race (`scripts/<race>/`). They are intended to be run manually; they are not
-part of the normal build.
-
-Each script invokes the `2point5dinfo` CLI to crop a region of a sprite (`-l`) and write a
-fixture file (`-o`). Two environment variables configure the inputs and outputs:
+are organized by race (`scripts/<race>/`). You are expected to have the `2point5dinfo` CLI
+installed to use these. It can be found [here](https://github.com/dduxx/two-point-five-d-info). Two
+environment variables configure the inputs and outputs:
 
 | Variable                    | Description                                           | Example                    |
 |-----------------------------|-------------------------------------------------------|----------------------------|
@@ -104,6 +103,7 @@ dfCharacterBuilder/
 │   ├── dwarf/
 │   ├── elf/
 │   ├── goblin/
+│   ├── kobold/
 │   ├── ogre/
 │   ├── troll/
 │   ├── megabeasts/
@@ -116,6 +116,7 @@ dfCharacterBuilder/
 │   ├── human/
 │   ├── elf/
 │   ├── goblin/
+│   ├── kobold/
 │   ├── megabeasts/
 │   ├── ogre/
 │   ├── troll/
