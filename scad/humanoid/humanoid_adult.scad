@@ -3,7 +3,7 @@ include <../libs/creature.scad>
 // TODO we need to combine the wieldables if we can
 
 /* [General:] */
-RACE = "human"; // [human:Human, dwarf:Dwarf]
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
 
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;
@@ -96,7 +96,7 @@ build_humanoid_adult(
     path_prefix = str("../../fixtures/", RACE, "/adult_"),
     wieldables_path_prefix = str(
         "../../fixtures/wieldables/",
-        RACE == "human" ? "tall" : "default",
+        RACE == "dwarf" ? "default" : "tall",
         "/adult_"
     ),
     pixel_size = PIXEL_SIZE,

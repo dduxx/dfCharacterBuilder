@@ -1,7 +1,7 @@
 include <../libs/creature.scad>
 
 /* [General:] */
-RACE = "human"; // [human:Human, dwarf:Dwarf]
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
 
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;
@@ -32,7 +32,6 @@ HAIR_STYLE = "none"; // [none: None, long_braided:Long Braided, long_combed:Long
 // MM to offset the hair layer on the z axis
 HAIR_OFFSET = 2;
 
-// Beards are available for dwarves only
 BEARD_STYLE = "none"; // [none:None, long_braided:Long Braided, long_combed:Long Combed, long_double_braids:Long Double Braids, long_unkempt:Long Unkempt, mid_braided:Mid Braided, mid_combed:Mid Combed, mid_double_braids:Mid Double Braids, mid_unkempt:Mid Unkempt, short_braided:Short Braided, short_combed:Short Combed, short_double_braids:Short Double Braids, short_unkempt:Short Unkempt]
 
 // MM to offset the beard layer on the z axis
@@ -82,7 +81,7 @@ build_humanoid_child(
     body_offset = BODY_OFFSET,
     hair_style = HAIR_STYLE,
     hair_offset = HAIR_OFFSET,
-    beard_style = RACE == "dwarf" ? BEARD_STYLE : NONE,
+    beard_style = BEARD_STYLE,
     beard_offset = BEARD_OFFSET,
     has_hood = HAS_HOOD,
     has_cape = HAS_CAPE,
