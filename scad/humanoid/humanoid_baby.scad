@@ -4,7 +4,7 @@ include <../../dependencies/dduxx:twoPointFiveD:v1.0.0/scad/main.scad>
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;
 
-RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf, goblin:Goblin]
 
 module __Customizer_Limit__ () {}
 

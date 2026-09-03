@@ -13,6 +13,7 @@ This project is a work in progress. I intend to work on adding greater support f
 | Human      | Adult, Child, Baby    | Full (gender, hair, beard, body parts, clothing, armor, weapons) |
 | Dwarf      | Adult, Child, Baby    | Full (same as human)                                   |
 | Elf        | Adult, Child, Baby    | Full (same as human)                                   |
+| Goblin     | Adult, Child, Baby    | Body, clothing, armor, weapons (no hair or beards)     |
 | Ogre       | Adult, Child          | Type selection from fixtures                           |
 | Troll      | Adult, Child, Baby    | Type selection from fixtures                           |
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
@@ -43,7 +44,7 @@ buildscad pull
 
 All generators are located in their own directories. Navigate to `scad/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
-Humans, dwarves, and elves share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer.
+Humans, dwarves, elves, and goblins share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer. Some races have limited or no hair or beards, so those selectors are ignored for them (ie: Goblins).
 
 ## Extracting Fixtures
 
@@ -102,6 +103,7 @@ dfCharacterBuilder/
 │   ├── human/
 │   ├── dwarf/
 │   ├── elf/
+│   ├── goblin/
 │   ├── ogre/
 │   ├── troll/
 │   ├── megabeasts/
@@ -113,6 +115,7 @@ dfCharacterBuilder/
 │   ├── dwarf/
 │   ├── human/
 │   ├── elf/
+│   ├── goblin/
 │   ├── megabeasts/
 │   ├── ogre/
 │   ├── troll/
