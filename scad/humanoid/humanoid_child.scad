@@ -7,7 +7,7 @@ PIXEL_SIZE = 1;
 
 /* [Body Parts:] */
 
-RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf, goblin:Goblin]
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf, goblin:Goblin, kobold:Kobold]
 
 GENDER = "m"; // [m:Male, f:Female]
 HEAD = 1; // [0 : 4]
@@ -83,9 +83,9 @@ build_humanoid_child(
     has_right_leg = HAS_RIGHT_LEG,
     has_right_foot = HAS_RIGHT_FOOT,
     body_offset = BODY_OFFSET,
-    hair_style = RACE == "goblin" ? NONE : HAIR_STYLE,
+    hair_style = RACE == "goblin" || RACE == "kobold" ? NONE : HAIR_STYLE,
     hair_offset = HAIR_OFFSET,
-    beard_style = RACE == "goblin" ? NONE : BEARD_STYLE,
+    beard_style = RACE == "goblin" || RACE == "kobold" ? NONE : BEARD_STYLE,
     beard_offset = BEARD_OFFSET,
     has_hood = HAS_HOOD,
     has_cape = HAS_CAPE,
