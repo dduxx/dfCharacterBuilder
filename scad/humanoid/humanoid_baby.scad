@@ -1,7 +1,7 @@
 include <../../dependencies/dduxx:twoPointFiveD:v1.0.0/scad/main.scad>
 
 /* [General:] */
-RACE = "human"; // [human:Human, dwarf:Dwarf]
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
 
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;

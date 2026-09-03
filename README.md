@@ -10,8 +10,9 @@ This project is a work in progress. I intend to work on adding greater support f
 
 | Type       | Stages                | Customization                                          |
 |------------|-----------------------|--------------------------------------------------------|
-| Human      | Adult, Child, Baby    | Full (gender, hair, body parts, clothing, armor, weapons); children have no beards |
-| Dwarf      | Adult, Child, Baby    | Full (same as human, plus beards on adults and children) |
+| Human      | Adult, Child, Baby    | Full (gender, hair, beard, body parts, clothing, armor, weapons) |
+| Dwarf      | Adult, Child, Baby    | Full (same as human)                                   |
+| Elf        | Adult, Child, Baby    | Full (same as human)                                   |
 | Ogre       | Adult, Child          | Type selection from fixtures                           |
 | Troll      | Adult, Child, Baby    | Type selection from fixtures                           |
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
@@ -42,7 +43,7 @@ buildscad pull
 
 All generators are located in their own directories. Navigate to `scad/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
-Humans and dwarves share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer.
+Humans, dwarves, and elves share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer.
 
 ## Extracting Fixtures
 
@@ -100,6 +101,7 @@ dfCharacterBuilder/
 ├── fixtures/              # JSON fixtures (pixel arrays + height maps)
 │   ├── human/
 │   ├── dwarf/
+│   ├── elf/
 │   ├── ogre/
 │   ├── troll/
 │   ├── megabeasts/
@@ -110,6 +112,7 @@ dfCharacterBuilder/
 ├── scripts/               # Scripts for extracting pixel data from game sprites
 │   ├── dwarf/
 │   ├── human/
+│   ├── elf/
 │   ├── megabeasts/
 │   ├── ogre/
 │   ├── troll/
