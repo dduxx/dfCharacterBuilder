@@ -6,7 +6,7 @@ PIXEL_SIZE = 1;
 
 /* [Body Parts:] */
 
-RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf, goblin:Goblin, kobold:Kobold]
+RACE = "dwarf"; // [dwarf:Dwarf, human:Human, elf:Elf, goblin:Goblin, kobold:Kobold]
 
 GENDER = "m"; // [m:Male, f:Female]
 
