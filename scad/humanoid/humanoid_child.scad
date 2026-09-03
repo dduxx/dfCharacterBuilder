@@ -1,12 +1,14 @@
 include <../libs/creature.scad>
 
 /* [General:] */
-RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
 
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;
 
 /* [Body Parts:] */
+
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
+
 GENDER = "m"; // [m:Male, f:Female]
 HEAD = 1; // [0 : 4]
 

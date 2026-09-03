@@ -1,15 +1,15 @@
 include <../libs/creature.scad>
 
-// TODO we need to combine the wieldables if we can
-
 /* [General:] */
-RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
-
 // MM per pixel in the x and y direction
 PIXEL_SIZE = 1;
 
 /* [Body Parts:] */
+
+RACE = "human"; // [human:Human, dwarf:Dwarf, elf:Elf]
+
 GENDER = "m"; // [m:Male, f:Female]
+
 HEAD = 1; // [0 : 4]
 
 HAS_LEFT_SHOULDER = true;
