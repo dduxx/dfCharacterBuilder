@@ -59,7 +59,7 @@ function get_hair_part_path(prefix, type) = str(
     "hair",
     "_",
     type,
-    ".json",
+    ".json"
 );
 
 function get_beard_part_path(prefix, type) = str(

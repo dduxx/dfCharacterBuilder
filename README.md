@@ -19,6 +19,7 @@ This project is a work in progress. I intend to work on adding greater support f
 | Troll      | Adult, Child, Baby    | Type selection from fixtures                           |
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
 | Werebeast  | —                     | Animal type selection (60+ animals)                    |
+| Animal People | Adult             | Split body parts + wearables (cape/torso/arms) + wieldables (regular, large, small, bug + bird categories) |
 
 ## Prerequisites
 
@@ -95,7 +96,16 @@ dfCharacterBuilder/
 │   │   └── megabeast_baby.scad
 │   ├── werebeasts/
 │   │   └── werebeasts.scad
+│   ├── animal_people/
+│   │   ├── animal_people_regular.scad
+│   │   ├── animal_people_large.scad
+│   │   ├── animal_people_small.scad
+│   │   ├── animal_people_bug_simple.scad
+│   │   ├── animal_people_bug_standard.scad
+│   │   ├── animal_people_bug_spider.scad
+│   │   └── animal_people_bird.scad
 │   └── libs/
+│       ├── animal_people.scad
 │       ├── creature.scad
 │       └── general.scad
 ├── fixtures/              # JSON fixtures (pixel arrays + height maps)
@@ -110,7 +120,8 @@ dfCharacterBuilder/
 │   ├── werebeasts/
 │   └── wieldables/
 │       ├── default/
-│       └── tall/
+│       ├── tall/
+│       └── wide/
 ├── scripts/               # Scripts for extracting pixel data from game sprites
 │   ├── dwarf/
 │   ├── human/
@@ -121,9 +132,11 @@ dfCharacterBuilder/
 │   ├── ogre/
 │   ├── troll/
 │   ├── werebeasts/
+│   ├── animal_people/
 │   └── wieldables/
 │       ├── default/
-│       └── tall/
+│       ├── tall/
+│       └── wide/
 └── dependencies/          # Fetched by buildscad pull
     └── dduxx:twoPointFiveD:v1.0.0/
 ```
