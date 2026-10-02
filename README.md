@@ -19,6 +19,7 @@ This project is a work in progress. I intend to work on adding greater support f
 | Troll      | Adult, Child, Baby    | Type selection from fixtures                           |
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
 | Werebeast  | —                     | Animal type selection (60+ animals)                    |
+| Domestic   | Adult, Child          | Age + gender (some), training (dogs), saddlebags (beasts of burden) |
 | Animal People | Adult             | Split body parts + wearables (cape/torso/arms) + wieldables (regular, large, small, bug + bird categories) |
 
 ## Prerequisites
@@ -96,6 +97,10 @@ dfCharacterBuilder/
 │   │   └── megabeast_baby.scad
 │   ├── werebeasts/
 │   │   └── werebeasts.scad
+│   ├── domestic/
+│   │   ├── standard.scad
+│   │   ├── gendered.scad
+│   │   └── burden.scad
 │   ├── animal_people/
 │   │   ├── animal_people_regular.scad
 │   │   ├── animal_people_large.scad
@@ -118,6 +123,10 @@ dfCharacterBuilder/
 │   ├── troll/
 │   ├── megabeasts/
 │   ├── werebeasts/
+│   ├── domestic/
+│   │   ├── standard/
+│   │   ├── gendered/
+│   │   └── burden/
 │   └── wieldables/
 │       ├── default/
 │       ├── tall/
@@ -132,6 +141,7 @@ dfCharacterBuilder/
 │   ├── ogre/
 │   ├── troll/
 │   ├── werebeasts/
+│   ├── domestic/
 │   ├── animal_people/
 │   └── wieldables/
 │       ├── default/
