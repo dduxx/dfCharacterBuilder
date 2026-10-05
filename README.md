@@ -45,15 +45,15 @@ buildscad pull
 
 ## Usage
 
-All generators are located in their own directories. Navigate to `scad/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
+All generators are located in their own directories. Navigate to `scad/character_models/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
-Humans, dwarves, elves, goblins, and kobolds share three generators: `scad/humanoid/humanoid_adult.scad`, `scad/humanoid/humanoid_child.scad`, and `scad/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer. Some races have limited or no hair or beards, so those selectors are ignored for them (ie: Goblins, Kobolds).
+Humans, dwarves, elves, goblins, and kobolds share three generators: `scad/character_models/humanoid/humanoid_adult.scad`, `scad/character_models/humanoid/humanoid_child.scad`, and `scad/character_models/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer. Some races have limited or no hair or beards, so those selectors are ignored for them (ie: Goblins, Kobolds).
 
 ## Extracting Fixtures
 
 The `scripts/` directory contains shell scripts that extract pixel/heightmap data from the
 Dwarf Fortress game sprites into the JSON fixtures consumed by the OpenSCAD generators. Scripts
-are organized by race (`scripts/<race>/`). You are expected to have the `2point5dinfo` CLI
+are organized by race (`scripts/character_models/<race>/`). You are expected to have the `2point5dinfo` CLI
 installed to use these. It can be found [here](https://github.com/dduxx/two-point-five-d-info). Two
 environment variables configure the inputs and outputs:
 
@@ -68,7 +68,7 @@ Example:
 export DWARF_FORTRESS_INSTALL_DIR="/path/to/Dwarf Fortress"
 export FIXTURE_OUTPUT_DIR="./fixtures"
 
-./scripts/dwarf/dwarf_adult.sh
+./scripts/character_models/dwarf/dwarf_adult.sh
 ```
 
 The scripts require the `2point5dinfo` CLI to be available on your `PATH`.
@@ -80,73 +80,79 @@ dfCharacterBuilder/
 ├── buildscad.properties   # Project configuration (assemblies, OpenSCAD path, etc.)
 ├── deps.json              # Dependencies (twoPointFiveD)
 ├── scad/                  # OpenSCAD source files
-│   ├── humanoid/
-│   │   ├── humanoid_adult.scad
-│   │   ├── humanoid_child.scad
-│   │   └── humanoid_baby.scad
-│   ├── ogre/
-│   │   ├── ogre_adult.scad
-│   │   └── ogre_child.scad
-│   ├── troll/
-│   │   ├── troll_adult.scad
-│   │   ├── troll_child.scad
-│   │   └── troll_baby.scad
-│   ├── megabeasts/
-│   │   ├── megabeast_adult.scad
-│   │   ├── megabeast_child.scad
-│   │   └── megabeast_baby.scad
-│   ├── werebeasts/
-│   │   └── werebeasts.scad
-│   ├── domestic/
-│   │   ├── standard.scad
-│   │   ├── gendered.scad
-│   │   └── burden.scad
-│   ├── animal_people/
-│   │   ├── animal_people_regular.scad
-│   │   ├── animal_people_large.scad
-│   │   ├── animal_people_small.scad
-│   │   ├── animal_people_bug_simple.scad
-│   │   ├── animal_people_bug_standard.scad
-│   │   ├── animal_people_bug_spider.scad
-│   │   └── animal_people_bird.scad
-│   └── libs/
+│   ├── character_models/   # Character model generators
+│   │   ├── humanoid/
+│   │   │   ├── humanoid_adult.scad
+│   │   │   ├── humanoid_child.scad
+│   │   │   └── humanoid_baby.scad
+│   │   ├── ogre/
+│   │   │   ├── ogre_adult.scad
+│   │   │   └── ogre_child.scad
+│   │   ├── troll/
+│   │   │   ├── troll_adult.scad
+│   │   │   ├── troll_child.scad
+│   │   │   └── troll_baby.scad
+│   │   ├── megabeasts/
+│   │   │   ├── megabeast_adult.scad
+│   │   │   ├── megabeast_child.scad
+│   │   │   └── megabeast_baby.scad
+│   │   ├── werebeasts/
+│   │   │   └── werebeasts.scad
+│   │   ├── creatures/
+│   │   │   └── domestic/
+│   │   │       ├── standard.scad
+│   │   │       ├── gendered.scad
+│   │   │       └── burden.scad
+│   │   └── animal_people/
+│   │       ├── animal_people_regular.scad
+│   │       ├── animal_people_large.scad
+│   │       ├── animal_people_small.scad
+│   │       ├── animal_people_bug_simple.scad
+│   │       ├── animal_people_bug_standard.scad
+│   │       ├── animal_people_bug_spider.scad
+│   │       └── animal_people_bird.scad
+│   └── libs/               # Shared OpenSCAD libraries
 │       ├── animal_people.scad
 │       ├── creature.scad
 │       └── general.scad
 ├── fixtures/              # JSON fixtures (pixel arrays + height maps)
-│   ├── human/
-│   ├── dwarf/
-│   ├── elf/
-│   ├── goblin/
-│   ├── kobold/
-│   ├── ogre/
-│   ├── troll/
-│   ├── megabeasts/
-│   ├── werebeasts/
-│   ├── domestic/
-│   │   ├── standard/
-│   │   ├── gendered/
-│   │   └── burden/
-│   └── wieldables/
-│       ├── default/
-│       ├── tall/
-│       └── wide/
+│   └── character_models/
+│       ├── human/
+│       ├── dwarf/
+│       ├── elf/
+│       ├── goblin/
+│       ├── kobold/
+│       ├── ogre/
+│       ├── troll/
+│       ├── megabeasts/
+│       ├── werebeasts/
+│       ├── creatures/
+│       │   └── domestic/
+│       │       ├── standard/
+│       │       ├── gendered/
+│       │       └── burden/
+│       └── wieldables/
+│           ├── default/
+│           ├── tall/
+│           └── wide/
 ├── scripts/               # Scripts for extracting pixel data from game sprites
-│   ├── dwarf/
-│   ├── human/
-│   ├── elf/
-│   ├── goblin/
-│   ├── kobold/
-│   ├── megabeasts/
-│   ├── ogre/
-│   ├── troll/
-│   ├── werebeasts/
-│   ├── domestic/
-│   ├── animal_people/
-│   └── wieldables/
-│       ├── default/
-│       ├── tall/
-│       └── wide/
+│   └── character_models/
+│       ├── dwarf/
+│       ├── human/
+│       ├── elf/
+│       ├── goblin/
+│       ├── kobold/
+│       ├── megabeasts/
+│       ├── ogre/
+│       ├── troll/
+│       ├── werebeasts/
+│       ├── creatures/
+│       │   └── domestic/
+│       ├── animal_people/
+│       └── wieldables/
+│           ├── default/
+│           ├── tall/
+│           └── wide/
 └── dependencies/          # Fetched by buildscad pull
     └── dduxx:twoPointFiveD:v1.0.0/
 ```
