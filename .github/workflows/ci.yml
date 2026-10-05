@@ -5,6 +5,6 @@ on:
 
 jobs:
   ci:
-    uses: dduxx/buildscad-workflows/.github/workflows/ci.yml@v1.0.1
+    uses: dduxx/buildscad-workflows/.github/workflows/ci.yml@v1.0.2
     with:
       openscad: openscad-nightly
