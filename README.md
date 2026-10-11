@@ -20,7 +20,9 @@ This project is a work in progress. I intend to work on adding greater support f
 | Megabeast  | Adult, Child, Baby    | Type selection (dragon, cyclops, giant, hydra, etc.)   |
 | Werebeast  | —                     | Animal type selection (60+ animals)                    |
 | Domestic   | Adult, Child          | Age + gender (some), training (dogs), saddlebags (beasts of burden) |
+| Surface    | Adult, Child (Baby for gnomes) | Age + gender (some), saddlebags (beasts of burden) |
 | Animal People | Adult             | Split body parts + wearables (cape/torso/arms) + wieldables (regular, large, small, bug + bird categories) |
+| Objects    | —                     | Instrument type selection (9 instruments)             |
 
 ## Prerequisites
 
@@ -45,7 +47,7 @@ buildscad pull
 
 ## Usage
 
-All generators are located in their own directories. Navigate to `scad/character_models/<race-type>/` and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
+All generators are located in their own directories. Navigate to `scad/character_models/<race-type>/` (or `scad/objects/` for non-character objects) and open the desired file in OpenSCAD, then use the **Customizer** pane to customize the model. Once it is customized to your liking render and export to STL from within OpenSCAD.
 
 Humans, dwarves, elves, goblins, and kobolds share three generators: `scad/character_models/humanoid/humanoid_adult.scad`, `scad/character_models/humanoid/humanoid_child.scad`, and `scad/character_models/humanoid/humanoid_baby.scad`. Select the desired creature from each file's **RACE** setting in the Customizer. Some races have limited or no hair or beards, so those selectors are ignored for them (ie: Goblins, Kobolds).
 
@@ -53,7 +55,7 @@ Humans, dwarves, elves, goblins, and kobolds share three generators: `scad/chara
 
 The `scripts/` directory contains shell scripts that extract pixel/heightmap data from the
 Dwarf Fortress game sprites into the JSON fixtures consumed by the OpenSCAD generators. Scripts
-are organized by race (`scripts/character_models/<race>/`). You are expected to have the `2point5dinfo` CLI
+are organized by race (`scripts/character_models/<race>/`), with non-character objects under `scripts/objects/`. You are expected to have the `2point5dinfo` CLI
 installed to use these. It can be found [here](https://github.com/dduxx/two-point-five-d-info). Two
 environment variables configure the inputs and outputs:
 
@@ -99,7 +101,11 @@ dfCharacterBuilder/
 │   │   ├── werebeasts/
 │   │   │   └── werebeasts.scad
 │   │   ├── creatures/
-│   │   │   └── domestic/
+│   │   │   ├── domestic/
+│   │   │   │   ├── standard.scad
+│   │   │   │   ├── gendered.scad
+│   │   │   │   └── burden.scad
+│   │   │   └── surface/
 │   │   │       ├── standard.scad
 │   │   │       ├── gendered.scad
 │   │   │       └── burden.scad
@@ -111,48 +117,66 @@ dfCharacterBuilder/
 │   │       ├── animal_people_bug_standard.scad
 │   │       ├── animal_people_bug_spider.scad
 │   │       └── animal_people_bird.scad
+│   ├── objects/             # Non-character object generators
+│   │   └── instruments.scad
 │   └── libs/               # Shared OpenSCAD libraries
 │       ├── animal_people.scad
 │       ├── creature.scad
 │       └── general.scad
 ├── fixtures/              # JSON fixtures (pixel arrays + height maps)
-│   └── character_models/
-│       ├── human/
-│       ├── dwarf/
-│       ├── elf/
-│       ├── goblin/
-│       ├── kobold/
-│       ├── ogre/
-│       ├── troll/
-│       ├── megabeasts/
-│       ├── werebeasts/
-│       ├── creatures/
-│       │   └── domestic/
-│       │       ├── standard/
-│       │       ├── gendered/
-│       │       └── burden/
-│       └── wieldables/
-│           ├── default/
-│           ├── tall/
-│           └── wide/
+│   ├── character_models/
+│   │   ├── human/
+│   │   ├── dwarf/
+│   │   ├── elf/
+│   │   ├── goblin/
+│   │   ├── kobold/
+│   │   ├── ogre/
+│   │   ├── troll/
+│   │   ├── megabeasts/
+│   │   ├── werebeasts/
+│   │   ├── creatures/
+│   │   │   ├── domestic/
+│   │   │   │   ├── standard/
+│   │   │   │   ├── gendered/
+│   │   │   │   └── burden/
+│   │   │   └── surface/
+│   │   │       ├── standard/
+│   │   │       ├── gendered/
+│   │   │       └── burden/
+│   │   ├── animal_people/
+│   │   │   ├── bird/
+│   │   │   ├── bug/
+│   │   │   ├── large/
+│   │   │   ├── regular/
+│   │   │   ├── small/
+│   │   │   └── wearables/
+│   │   └── wieldables/
+│   │       ├── default/
+│   │       ├── tall/
+│   │       └── wide/
+│   └── objects/
+│       └── instruments/
 ├── scripts/               # Scripts for extracting pixel data from game sprites
-│   └── character_models/
-│       ├── dwarf/
-│       ├── human/
-│       ├── elf/
-│       ├── goblin/
-│       ├── kobold/
-│       ├── megabeasts/
-│       ├── ogre/
-│       ├── troll/
-│       ├── werebeasts/
-│       ├── creatures/
-│       │   └── domestic/
-│       ├── animal_people/
-│       └── wieldables/
-│           ├── default/
-│           ├── tall/
-│           └── wide/
+│   ├── character_models/
+│   │   ├── dwarf/
+│   │   ├── human/
+│   │   ├── elf/
+│   │   ├── goblin/
+│   │   ├── kobold/
+│   │   ├── megabeasts/
+│   │   ├── ogre/
+│   │   ├── troll/
+│   │   ├── werebeasts/
+│   │   ├── creatures/
+│   │   │   ├── domestic/
+│   │   │   └── surface/
+│   │   ├── animal_people/
+│   │   └── wieldables/
+│   │       ├── default/
+│   │       ├── tall/
+│   │       └── wide/
+│   └── objects/
+│       └── instruments/
 └── dependencies/          # Fetched by buildscad pull
     └── dduxx:twoPointFiveD:v1.0.0/
 ```
