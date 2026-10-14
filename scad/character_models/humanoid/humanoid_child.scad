@@ -62,7 +62,7 @@ SHIRT = "none"; // [none: None, torso_simple:Simple, torso_vest:Vest]
 WAIST = "none"; // [none:None, waist_robe:Robe, waist_skirt:Skirt, waist_skirt_short:Short Skirt, waist_tunic:Tunic]
 
 // MM to offset the cape layer on the z axis
-HOOD_CAPE_OFFSET = 0;
+CAPE_OFFSET = 0;
 
 // MM to offset the clothing layer on the z axis
 CLOTHING_OFFSET = 3;
@@ -102,6 +102,6 @@ build_humanoid_child(
     face_covering = FACE_COVERING,
     shirt = SHIRT,
     waist = WAIST,
-    hood_cape_offset = HOOD_CAPE_OFFSET,
+    cape_offset = CAPE_OFFSET,
     clothing_offset = CLOTHING_OFFSET,
 );
