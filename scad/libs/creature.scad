@@ -35,7 +35,7 @@ module build_humanoid_adult(
     left_foot_wearable = NONE,
     right_leg_wearable = NONE,
     right_foot_wearable = NONE,
-    hood_cape_offset = 0,
+    cape_offset = 0,
     clothing_offset = 3,
     wieldable_left_hand = NONE,
     wieldable_left_hand_x_offset = -32,
@@ -162,12 +162,12 @@ module build_humanoid_adult(
 
     multi_layer_two_point_five_d(
         image_layers = [
-            hood_obj,
             cape_obj,
             body_obj,
             shirt_obj,
             head_obj,
             hair_obj,
+            hood_obj,
             beard_obj,
             earing_obj,
             face_covering_obj,
@@ -191,12 +191,12 @@ module build_humanoid_adult(
             headwear_obj,
         ],
         layer_offsets = [
-            has_hood ? hood_cape_offset : undef,
-            has_cape ? hood_cape_offset : undef,
+            has_cape ? cape_offset : undef,
             body_offset,
             shirt != NONE ? clothing_offset : undef,
             head > 0 ? body_offset : undef,
             hair_style != NONE ? hair_offset : undef,
+            has_hood ? clothing_offset : undef,
             beard_style != NONE ? beard_offset : undef,
             has_earings ? clothing_offset : undef,
             face_covering != NONE ? clothing_offset : undef,
@@ -277,7 +277,7 @@ module build_humanoid_child(
     face_covering = NONE,
     shirt = NONE,
     waist = NONE,
-    hood_cape_offset = 0,
+    cape_offset = 0,
     clothing_offset = 3
 ) {
     head_obj = head > 0 ?
@@ -388,12 +388,12 @@ module build_humanoid_child(
 
     multi_layer_two_point_five_d(
         image_layers = [
-            hood_obj,
             cape_obj,
             body_obj,
             shirt_obj,
             head_obj,
             hair_obj,
+            hood_obj,
             beard_obj,
             earing_obj,
             face_covering_obj,
@@ -417,12 +417,12 @@ module build_humanoid_child(
             headwear_obj,
         ],
         layer_offsets = [
-            has_hood ? hood_cape_offset : undef,
-            has_cape ? hood_cape_offset : undef,
+            has_cape ? cape_offset : undef,
             body_offset,
             shirt != NONE ? clothing_offset : undef,
             head > 0 ? body_offset : undef,
             hair_style != NONE ? hair_offset : undef,
+            has_hood ? clothing_offset : undef,
             beard_style != NONE ? beard_offset : undef,
             has_earings ? clothing_offset : undef,
             face_covering != NONE ? clothing_offset : undef,

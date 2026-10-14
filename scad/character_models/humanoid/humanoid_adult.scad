@@ -67,7 +67,7 @@ RIGHT_FOOT_WEARABLE = "none"; // [none:None, right_foot_base:Base, right_foot_bo
 RIGHT_LEG_WEARABLE = "none"; // [none:None, right_leg_base:Base, right_leg_greaves_artifact:Greaves Artifact, right_leg_greaves_standard:Greaves Standard, right_leg_leggings_artifact:Greaves Artifact, right_leg_leggings_standard:Leggings Standard]
 
 // MM to offset the cape layer on the z axis
-HOOD_CAPE_OFFSET = 0;
+CAPE_OFFSET = 0;
 
 // MM to offset the clothing layer on the z axis
 CLOTHING_OFFSET = 3;
@@ -132,7 +132,7 @@ build_humanoid_adult(
     left_foot_wearable = LEFT_FOOT_WEARABLE,
     right_leg_wearable = RIGHT_LEG_WEARABLE,
     right_foot_wearable = RIGHT_FOOT_WEARABLE,
-    hood_cape_offset = HOOD_CAPE_OFFSET,
+    cape_offset = CAPE_OFFSET,
     clothing_offset = CLOTHING_OFFSET,
     wieldable_left_hand = WIELDABLE_LEFT_HAND,
     wieldable_left_hand_x_offset = WIELDABLE_LEFT_HAND_X_OFFSET,
