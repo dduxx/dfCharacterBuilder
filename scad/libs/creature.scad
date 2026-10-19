@@ -449,3 +449,29 @@ module build_humanoid_child(
         center = false
     );
 }
+
+module render_extinct_creature(
+    folder_prefix = "../../fixtures/character_models/creatures/extinct/",
+    epoch,
+    type,
+    is_child = false,
+    pixel_size = 1,
+) {
+    creature_path = str(
+        folder_prefix,
+        epoch,
+        "_",
+        type,
+        is_child ? "_child" : "",
+        ".json"
+    );
+
+    creature_obj = import(creature_path);
+
+    two_point_five_d(
+        image_array = creature_obj["image"],
+        height_map = creature_obj["height_map"],
+        pixel_size = pixel_size,
+        center = false
+    );
+}
