@@ -21,6 +21,7 @@ This project is a work in progress. I intend to work on adding greater support f
 | Werebeast  | —                     | Animal type selection (60+ animals)                    |
 | Domestic   | Adult, Child          | Age + gender (some), training (dogs), saddlebags (beasts of burden) |
 | Surface    | Adult, Child (Baby for gnomes) | Age + gender (some), saddlebags (beasts of burden) |
+| Extinct    | Adult, Child          | Type selection (18 prehistoric creatures)          |
 | Animal People | Adult             | Split body parts + wearables (cape/torso/arms) + wieldables (regular, large, small, bug + bird categories) |
 | Objects    | —                     | Instrument type selection (9 instruments)             |
 
@@ -105,10 +106,12 @@ dfCharacterBuilder/
 │   │   │   │   ├── standard.scad
 │   │   │   │   ├── gendered.scad
 │   │   │   │   └── burden.scad
-│   │   │   └── surface/
-│   │   │       ├── standard.scad
-│   │   │       ├── gendered.scad
-│   │   │       └── burden.scad
+│   │   │   ├── surface/
+│   │   │   │   ├── standard.scad
+│   │   │   │   ├── gendered.scad
+│   │   │   │   └── burden.scad
+│   │   │   └── extinct/
+│   │   │       └── jurassic.scad
 │   │   └── animal_people/
 │   │       ├── animal_people_regular.scad
 │   │       ├── animal_people_large.scad
@@ -139,17 +142,25 @@ dfCharacterBuilder/
 │   │   │   │   ├── standard/
 │   │   │   │   ├── gendered/
 │   │   │   │   └── burden/
-│   │   │   └── surface/
-│   │   │       ├── standard/
-│   │   │       ├── gendered/
-│   │   │       └── burden/
+│   │   │   ├── surface/
+│   │   │   │   ├── standard/
+│   │   │   │   ├── gendered/
+│   │   │   │   └── burden/
+│   │   │   └── extinct/
 │   │   ├── animal_people/
 │   │   │   ├── bird/
 │   │   │   ├── bug/
 │   │   │   ├── large/
 │   │   │   ├── regular/
 │   │   │   ├── small/
-│   │   │   └── wearables/
+│   │   │   ├── wearables/
+│   │   │   ├── wearables_bird/
+│   │   │   ├── wearables_bird_padded/
+│   │   │   ├── wearables_large/
+│   │   │   ├── wearables_large_padded/
+│   │   │   ├── wearables_padded/
+│   │   │   ├── wearables_small/
+│   │   │   └── wearables_small_padded/
 │   │   └── wieldables/
 │   │       ├── default/
 │   │       ├── tall/
@@ -169,7 +180,8 @@ dfCharacterBuilder/
 │   │   ├── werebeasts/
 │   │   ├── creatures/
 │   │   │   ├── domestic/
-│   │   │   └── surface/
+│   │   │   ├── surface/
+│   │   │   └── extinct/
 │   │   ├── animal_people/
 │   │   └── wieldables/
 │   │       ├── default/
