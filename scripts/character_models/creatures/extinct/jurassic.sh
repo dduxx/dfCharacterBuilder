@@ -46,7 +46,7 @@
 2point5dinfo -sa -p 1 -s 0.2 -mc 20 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_extinct_graphics/graphics/images/creatures_jurassic.png:0,864,96,928 -o "${FIXTURE_OUTPUT_DIR}"/character_models/creatures/extinct/jurassic_afrovenator.json
 2point5dinfo -sa -p 1 -s 0.2 -mc 20 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_extinct_graphics/graphics/images/creatures_jurassic.png:96,864,192,928 -o "${FIXTURE_OUTPUT_DIR}"/character_models/creatures/extinct/jurassic_afrovenator_child.json
 
-2point5dinfo -sa -p 1 -s 0.2 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_extinct_graphics/graphics/images/creatures_jurassic.png:0,960,96,992 -o "${FIXTURE_OUTPUT_DIR}"/character_models/creatures/extinct/jurassic_rhamphorhynchus.json
+2point5dinfo -sa -p 1 -s 0.2 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_extinct_graphics/graphics/images/creatures_jurassic.png:0,928,96,992 -o "${FIXTURE_OUTPUT_DIR}"/character_models/creatures/extinct/jurassic_rhamphorhynchus.json
 2point5dinfo -sa -p 1 -s 0.2 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_extinct_graphics/graphics/images/creatures_jurassic.png:96,960,128,992 -o "${FIXTURE_OUTPUT_DIR}"/character_models/creatures/extinct/jurassic_rhamphorhynchus_child.json
 
 2point5dinfo -sa -p 1 -s 0.2 -l "${DWARF_FORTRESS_INSTALL_DIR}"/data/vanilla/vanilla_creatures_extinct_graphics/graphics/images/creatures_jurassic.png:0,992,32,1024 -o "${FIXTURE_OUTPUT_DIR}"/character_models/creatures/extinct/jurassic_ostenocaris.json
